@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flower Display with GIF Link</title>
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 100px;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    /* Input box */
+    .input-container {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      font-size: 16px;
+      background-color: yellow;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Display area */
+    .image-display {
+      margin-top: 30px;
+      max-width: 90%;
+      max-height: 70vh;
+    }
+
+    .image-display img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #fff;
+    }
+
+    /* Animated yellow flowers at top */
+    .flower {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: yellow;
+      border-radius: 50%;
+      top: -30px;
+      animation: fall 10s linear infinite;
+      box-shadow:
+        0 0 0 0 yellow,
+        -8px 0 orange,
+        8px 0 orange,
+        0 -8px orange,
+        0 8px orange;
+      opacity: 0.8;
+    }
+
+    .flower:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .flower:nth-child(2) { left: 25%; animation-delay: 2s; }
+    .flower:nth-child(3) { left: 40%; animation-delay: 4s; }
+    .flower:nth-child(4) { left: 60%; animation-delay: 1s; }
+    .flower:nth-child(5) { left: 75%; animation-delay: 3s; }
+    .flower:nth-child(6) { left: 90%; animation-delay: 5s; }
+
+    @keyframes fall {
+      0% {
+        top: -30px;
+        transform: rotate(0deg);
+      }
+      100% {
+        top: 110%;
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Yellow Flowers -->
+  <div class="flower"></div>
+  <div class="flower"></div>
+  <div class="flower"></div>
+  <div class="flower"></div>
+  <div class="flower"></div>
+  <div class="flower"></div>
+
+  <!-- Input field -->
+  <div class="input-container">
+    <input type="text" id="gifInput" placeholder="Paste GIF or image link here">
+    <button onclick="showImage()">Show</button>
+  </div>
+
+  <!-- Where the GIF/image will appear -->
+  <div class="image-display" id="displayArea"></div>
+
+  <script>
+    function showImage() {
+      const url = document.getElementById("gifInput").value;
+      const display = document.getElementById("displayArea");
+      if (url) {
+        display.innerHTML = `<img src="${url}" alt="Your Image">`;
+      }
+    }
+  </script>
+
+</body>
+</html>
