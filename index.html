@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🌼MyMemories-MAJ-📖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body {
+      background:#000; color:#fff; font-family:'Segoe UI',sans-serif;
+      min-height:100vh; display:flex; justify-content:center;
+      align-items:start; flex-direction:column;
+    }
+.dedicatoria-extra {
+  position: absolute;
+  bottom: 10px;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 15px;
+  border-radius: 8px;
+  color: #ffcc00;
+  font-size: 1rem;
+  font-family: 'Brush Script MT', cursive;
+  z-index: 4;
+  opacity: 1;
+  text-align: center;
+  max-width: 90%;
+  white-space: nowrap; /* para que no se divida en varias líneas */
+  animation: disintegrate 50s ease-out forwards;
+}
+
+#typed-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: #ffcc00;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.6);
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+
+    @keyframes disintegrate {
+      0%{opacity:1;filter:blur(0);transform:translateY(0) scale(1) rotate(0)}
+      30%{transform:rotate(-2deg) scale(1.01)}
+      60%{filter:blur(2px);transform:translateY(-10px) scale(1.05) rotate(2deg)}
+      80%{opacity:0.4;filter:blur(4px);transform:translateY(-20px) scale(1.1) rotate(-5deg)}
+      100%{opacity:0;filter:blur(10px);transform:translateY(-40px) scale(1.2) rotate(-10deg);display:none}
+    }
+    .container {
+      width:100%; max-width:1200px; margin:auto;
+      display:flex; flex-direction:column; align-items:center;
+      padding:20px;
+    }
+    .dedicatoria-box {
+      position:relative; background:#000; padding:40px 20px;
+      text-align:center; margin-top:30px; width:100%;
+      border-radius:10px;
+      box-shadow:0 0 15px rgba(255,255,255,0.1); overflow:hidden;
+    }
+    .dedicatoria {
+      color:#b366ff; font-size:2rem; line-height:1.6;
+      font-family:'Brush Script MT',cursive; z-index:2; position:relative;
+    }
+    .video-secundario {
+      margin:20px 10px; width:250px; height:auto;
+      border-radius:10px; box-shadow:0 0 15px #b366ff;
+    }
+    .petal {
+      position:absolute; width:24px; height:24px;
+      background:no-repeat center/contain;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="%23FFD700" d="M32 2C18 6 4 24 4 40c0 14 14 24 28 22 14 2 28-8 28-22 0-16-14-34-28-38z"/></svg>');
+      animation:fall 6s linear infinite; z-index:1; opacity:0.8;
+    }
+    .petal:nth-child(1){left:10%;animation-delay:0s}
+    .petal:nth-child(2){left:20%;animation-delay:1s}
+    .petal:nth-child(3){left:35%;animation-delay:2s}
+    .petal:nth-child(4){left:50%;animation-delay:1.5s}
+    .petal:nth-child(5){left:65%;animation-delay:0.5s}
+    .petal:nth-child(6){left:80%;animation-delay:2.5s}
+    .petal:nth-child(7){left:90%;animation-delay:3s}
+    @keyframes fall {
+      0%{top:-20px;transform:translateX(0) rotate(0);opacity:0.9}
+      100%{top:100%;transform:translateX(50px) rotate(360deg);opacity:0}
+    }
+    @media screen and (max-width:768px){
+      .video-principal{max-height:40vh}
+      .dedicatoria{font-size:1.5rem}
+      .video-secundario{width:90%;margin:15px auto}
+    }
+    @media screen and (max-width: 768px) {
+  .video-wrapper {
+    width: 90%; /* que sea más flexible y responsivo */
+    display: block;
+    margin: 0 auto;
+  }
+  .dedicatoria-extra {
+    white-space: normal; /* permitir varias líneas */
+    max-width: 100%;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+  .video-secundario {
+    width: 100%; /* que el video ocupe todo el contenedor */
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dedicatoria-extra {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+}
+  .video-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 250px; /* tamaño fijo igual que el video */
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- DEDICATORIA + PÉTALOS + VIDEOS SECUNDARIOS -->
+    <div class="dedicatoria-box">
+      
+      <!-- Pétalos -->
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+
+      <!-- Contenido de dedicatoria -->
+      <div class="dedicatoria">
+       <div class="video-wrapper">
+  <video src="realkirby.mp4" autoplay loop muted playsinline class="video-secundario"></video>
+  <div class="dedicatoria-extra">De tu amigo...AFV...que te estima🌼</div>
+</div>
+<button id="start-button" style="
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255, 204, 0, 0.75);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.4s ease;
+  animation: pulse 2.5s infinite;
+  letter-spacing: 0.5px;
+">
+  Vamos..
+</button>
+
+
+       <p id="typed-text"></p>
+        </p>
+
+<video
+  id="video-final"
+  src="realkirby_seen.mp4"
+  autoplay
+  loop
+  muted
+  playsinline
+  class="video-secundario"
+  style="opacity: 0; transform: translateY(20px); transition: opacity 2s ease, transform 2s ease;"
+></video>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🎵 AUDIO ALEATORIO -->
+<script>
+  const texto = `Para ti, que llenas de luz mis días.\nCada momento contigo es un regalo del universo.\nGracias por existir. 💜`;
+  const elemento = document.getElementById("typed-text");
+  const segundoVideo = document.querySelector("#video-final");
+
+  const startButton = document.getElementById("start-button");
+
+  // Crear audio
+  const canciones = ["zanarkand.ogg", "zelda.ogg"];
+  const cancionAleatoria = canciones[Math.floor(Math.random() * canciones.length)];
+  const audio = new Audio(cancionAleatoria);
+  audio.loop = true;
+
+  let i = 0;
+
+  function escribir() {
+    if (i < texto.length) {
+      const caracter = texto[i] === "\n" ? "<br>" : texto[i];
+      elemento.innerHTML += caracter;
+      i++;
+      setTimeout(escribir, 200); // velocidad de escritura
+    } else {
+      // Mostrar video suavemente cuando termine el texto
+      segundoVideo.style.opacity = '1';
+      segundoVideo.style.transform = 'translateY(0)';
+    }
+  }
+
+  startButton.addEventListener("click", () => {
+    audio.play();
+    escribir();
+    startButton.style.opacity = '0';
+startButton.style.pointerEvents = 'none';
+setTimeout(() => startButton.style.display = 'none', 1000)
+  });
+</script>
+
+
+</body>
+</html>
