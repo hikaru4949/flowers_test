@@ -13,7 +13,7 @@
     }
 .dedicatoria-extra {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.6);
   padding: 8px 15px;
@@ -25,9 +25,27 @@
   opacity: 1;
   text-align: center;
   max-width: 90%;
-  white-space: nowrap; /* para que no se divida en varias líneas */
+  white-space: nowrap; 
   animation: disintegrate 50s ease-out forwards;
 }
+.dedicatoria-extra2 {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #ffcc00;
+  font-size: 0.9rem;
+  font-family: 'Brush Script MT', cursive;
+  z-index: 4;
+  opacity: 0;
+  text-align: left;
+  max-width: 90%;
+  white-space: nowrap;
+}
+
 
 #typed-text::after {
   content: '|';
@@ -106,18 +124,18 @@
     }
     @media screen and (max-width: 768px) {
   .video-wrapper {
-    width: 90%; /* que sea más flexible y responsivo */
+    width: 90%; 
     display: block;
     margin: 0 auto;
   }
   .dedicatoria-extra {
-    white-space: normal; /* permitir varias líneas */
+    white-space: normal; 
     max-width: 100%;
     padding: 10px 20px;
     font-size: 1.2rem;
   }
   .video-secundario {
-    width: 100%; /* que el video ocupe todo el contenedor */
+    width: 100%; 
     margin: 0 auto;
     display: block;
   }
@@ -132,7 +150,7 @@
   .video-wrapper {
   position: relative;
   display: inline-block;
-  width: 250px; /* tamaño fijo igual que el video */
+  width: 250px; 
 }
   </style>
 </head>
@@ -141,7 +159,7 @@
 
   <div class="container">
 
-    <!-- DEDICATORIA + PÉTALOS + VIDEOS SECUNDARIOS -->
+    
     <div class="dedicatoria-box">
       
       <!-- Pétalos -->
@@ -153,7 +171,7 @@
       <div class="petal"></div>
       <div class="petal"></div>
 
-      <!-- Contenido de dedicatoria -->
+      
       <div class="dedicatoria">
        <div class="video-wrapper">
   <video src="realkirby.mp4" autoplay loop muted playsinline class="video-secundario"></video>
@@ -183,8 +201,7 @@
 
 
        <p id="typed-text"></p>
-        </p>
-
+        
 <video
   id="video-final"
   src="realkirby_seen.mp4"
@@ -195,13 +212,12 @@
   class="video-secundario"
   style="opacity: 0; transform: translateY(20px); transition: opacity 2s ease, transform 2s ease;"
 ></video>
-
+<div id="dedicatoria-final" class="dedicatoria-extra2" style="opacity: 0; transition: opacity 2s ease;">..MAJ..💫</div>
       </div>
     </div>
 
   </div>
 
-  <!-- 🎵 AUDIO ALEATORIO -->
 <script>
   const texto = `Para ti, que llenas de luz mis días.\nCada momento contigo es un regalo del universo.\nGracias por existir. 💜`;
   const elemento = document.getElementById("typed-text");
@@ -209,7 +225,7 @@
 
   const startButton = document.getElementById("start-button");
 
-  // Crear audio
+  
   const canciones = ["zanarkand.ogg", "zelda.ogg"];
   const cancionAleatoria = canciones[Math.floor(Math.random() * canciones.length)];
   const audio = new Audio(cancionAleatoria);
@@ -222,13 +238,17 @@
       const caracter = texto[i] === "\n" ? "<br>" : texto[i];
       elemento.innerHTML += caracter;
       i++;
-      setTimeout(escribir, 200); // velocidad de escritura
-    } else {
-      // Mostrar video suavemente cuando termine el texto
-      segundoVideo.style.opacity = '1';
-      segundoVideo.style.transform = 'translateY(0)';
-    }
-  }
+      setTimeout(escribir, 200); 
+    }else {
+  segundoVideo.style.opacity = '1';
+  segundoVideo.style.transform = 'translateY(0)';
+
+  // Mostrar la dedicatoria final sutilmente
+  const dedicatoriaFinal = document.getElementById("dedicatoria-final");
+  setTimeout(() => {
+    dedicatoriaFinal.style.opacity = '1';
+  }, 1000); 
+  }}
 
   startButton.addEventListener("click", () => {
     audio.play();
